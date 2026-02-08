@@ -1,26 +1,182 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #2bee6c;
+  --background-light: #f6f8f6;
+  --background-dark: #102216;
+  --foreground: #111813;
 }
 
 @theme inline {
-  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-background-light: var(--background-light);
+  --color-background-dark: var(--background-dark);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-display: "Plus Jakarta Sans", sans-serif;
 }
 
 body {
-  background: var(--background);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: var(--background-light);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+}
+
+.dark body {
+  background: var(--background-dark);
+  color: white;
+}
+
+/* Spinning wheel gradient */
+.roulette-gradient {
+  background: conic-gradient(from 0deg,
+      #2bee6c 0deg 5.14deg,
+      #102216 5.14deg 10.28deg,
+      #2bee6c 10.28deg 15.42deg,
+      #102216 15.42deg 20.56deg,
+      #2bee6c 20.56deg 25.7deg,
+      #102216 25.7deg 30.84deg,
+      #2bee6c 30.84deg 35.98deg,
+      #102216 35.98deg 41.12deg,
+      #2bee6c 41.12deg 46.26deg,
+      #102216 46.26deg 51.4deg,
+      #2bee6c 51.4deg 56.54deg,
+      #102216 56.54deg 61.68deg,
+      #2bee6c 61.68deg 66.82deg,
+      #102216 66.82deg 71.96deg,
+      #2bee6c 71.96deg 77.1deg,
+      #102216 77.1deg 82.24deg,
+      #2bee6c 82.24deg 87.38deg,
+      #102216 87.38deg 92.52deg,
+      #2bee6c 92.52deg 97.66deg,
+      #102216 97.66deg 102.8deg,
+      #2bee6c 102.8deg 107.94deg,
+      #102216 107.94deg 113.08deg,
+      #2bee6c 113.08deg 118.22deg,
+      #102216 118.22deg 123.36deg,
+      #2bee6c 123.36deg 128.5deg,
+      #102216 128.5deg 133.64deg,
+      #2bee6c 133.64deg 138.78deg,
+      #102216 138.78deg 143.92deg,
+      #2bee6c 143.92deg 149.06deg,
+      #102216 149.06deg 154.2deg,
+      #2bee6c 154.2deg 159.34deg,
+      #102216 159.34deg 164.48deg,
+      #2bee6c 164.48deg 169.62deg,
+      #102216 169.62deg 174.76deg,
+      #2bee6c 174.76deg 179.9deg,
+      #102216 179.9deg 185.04deg,
+      #2bee6c 185.04deg 190.18deg,
+      #102216 190.18deg 195.32deg,
+      #2bee6c 195.32deg 200.46deg,
+      #102216 200.46deg 205.6deg,
+      #2bee6c 205.6deg 210.74deg,
+      #102216 210.74deg 215.88deg,
+      #2bee6c 215.88deg 221.02deg,
+      #102216 221.02deg 226.16deg,
+      #2bee6c 226.16deg 231.3deg,
+      #102216 231.3deg 236.44deg,
+      #2bee6c 236.44deg 241.58deg,
+      #102216 241.58deg 246.72deg,
+      #2bee6c 246.72deg 251.86deg,
+      #102216 251.86deg 257deg,
+      #2bee6c 257deg 262.14deg,
+      #102216 262.14deg 267.28deg,
+      #2bee6c 267.28deg 272.42deg,
+      #102216 272.42deg 277.56deg,
+      #2bee6c 277.56deg 282.7deg,
+      #102216 282.7deg 287.84deg,
+      #2bee6c 287.84deg 292.98deg,
+      #102216 292.98deg 298.12deg,
+      #2bee6c 298.12deg 303.26deg,
+      #102216 303.26deg 308.4deg,
+      #2bee6c 308.4deg 313.54deg,
+      #102216 313.54deg 318.68deg,
+      #2bee6c 318.68deg 323.82deg,
+      #102216 323.82deg 328.96deg,
+      #2bee6c 328.96deg 334.1deg,
+      #102216 334.1deg 339.24deg,
+      #2bee6c 339.24deg 344.38deg,
+      #102216 344.38deg 349.52deg,
+      #2bee6c 349.52deg 354.66deg,
+      #102216 354.66deg 360deg);
+}
+
+/* Spinning animation */
+@keyframes spin-wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(var(--final-rotation, 3600deg));
+  }
+}
+
+.spinning {
+  animation: spin-wheel var(--spin-duration, 5s) cubic-bezier(0.17, 0.67, 0.12, 0.99) forwards;
+}
+
+/* Glass blur effect */
+.glass-blur {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Smooth transitions */
+.transition-spring {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Modal slide up animation */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Confetti animation */
+@keyframes float-confetti {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(20px) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  animation: float-confetti 2s ease-in-out infinite;
 }
