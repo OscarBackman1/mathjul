@@ -142,9 +142,9 @@ export default function GamePage() {
                 <button
                     onClick={handleSpin}
                     disabled={isSpinning || availableCountries.length === 0}
-                    className={`w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-5 text-lg font-extrabold leading-normal tracking-wide shadow-[0_8px_30px_rgb(43,238,108,0.3)] active:scale-95 transition-transform ${isSpinning || availableCountries.length === 0
-                            ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
-                            : 'bg-[#2bee6c] text-[#102216]'
+                    className={`w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-5 text-lg font-extrabold leading-normal tracking-wide shadow-[0_8px_30px_rgb(174,198,207,0.5)] active:scale-95 transition-transform ${isSpinning || availableCountries.length === 0
+                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
+                        : 'bg-[#aec6cf] text-[#111813]'
                         }`}
                 >
                     {isSpinning ? (

@@ -40,10 +40,10 @@ export default function Home() {
       <main className="flex-1 flex flex-col items-center justify-center p-8 text-center">
         {/* Decorative wheel */}
         <div className="relative w-48 h-48 mb-8">
-          <div className="absolute inset-0 bg-[#2bee6c]/20 blur-[40px] rounded-full"></div>
+          <div className="absolute inset-0 bg-[#aec6cf]/20 blur-[40px] rounded-full"></div>
           <div className="relative z-10 w-full h-full rounded-full border-8 border-white shadow-2xl overflow-hidden roulette-gradient flex items-center justify-center">
-            <div className="z-20 size-12 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#2bee6c]">
-              <span className="text-[#2bee6c] text-xl">🍽️</span>
+            <div className="z-20 size-12 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#aec6cf]">
+              <span className="text-[#aec6cf] text-xl">🍽️</span>
             </div>
           </div>
         </div>
@@ -65,9 +65,9 @@ export default function Home() {
         <button
           onClick={createNewSession}
           disabled={isCreating}
-          className={`flex items-center justify-center gap-2 px-8 py-4 rounded-full font-extrabold text-lg shadow-[0_8px_30px_rgb(43,238,108,0.3)] transition-all active:scale-95 ${isCreating
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              : 'bg-[#2bee6c] text-[#102216] hover:shadow-[0_8px_40px_rgb(43,238,108,0.4)]'
+          className={`flex items-center justify-center gap-2 px-8 py-4 rounded-full font-extrabold text-lg shadow-[0_8px_30px_rgb(174,198,207,0.5)] transition-all active:scale-95 ${isCreating
+            ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+            : 'bg-[#aec6cf] text-[#102216] hover:shadow-[0_8px_40px_rgb(174,198,207,0.6)]'
             }`}
         >
           {isCreating ? (
